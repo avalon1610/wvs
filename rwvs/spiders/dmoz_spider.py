@@ -18,8 +18,6 @@ class DmozSpider(BaseSpider):
 			'http://www.dmoz.org/Computers/Programming/Languages/Python/Books/',
 			'http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/'
 		]
-		self.link_extractor = SgmlLinkExtractor()
-		self.cookies_seen = set()
 
 	# def start_request(self):
 	# 	return [Request(self.url,callback=self.parse)]
@@ -33,6 +31,5 @@ class DmozSpider(BaseSpider):
 			title = site.select('a/text()').extract()
 			link = site.select('a/@href').extract()
 			desc = site.select('text()').extract()
-			print 'title',title
-			print 'link',link
-			print 'desc',desc
+			print title
+			
