@@ -1,18 +1,32 @@
 from twisted.internet import protocol
 
+DEBUG = 'DEBUG'
+INFO = 'INFO'
+WARNING = 'WARNING'
+ERROR = 'ERROR'
+
+def log(msg,level=INFO,mod=None):
+	print '[%s][%s]%s' % (mod,level,msg)
+
 class Session(protocol.ProcessProtocol):
+	def __init__(self,mod):
+		self.mod_name = mod
+		
+	def log(self,msg,level=INFO):
+		log(msg,level,self.mod_name)
+
 	def connectionMade(self):
-		print 'Session Create'
+		self.log('Session Create')
 
 	def send(self,data):
 		self.transport.write(data)
-		print 'Sent:%r' % data
+		self.log('Sent:%s' % data)
 		
 	def outReceived(self,data):
-		print '[torrent]:',data
+		self.log('Recv:%s' % data)
 
 	def errReceived(self,data):
-		print '[torrent error]:',data
+		self.log('Recv:%s' % data,ERROR)
 
 	def processEnded(self,reason):
-		print 'Process end status',reason.value.exitCode
+		self.log('Process END:%s' % reason.value.exitCode,ERROR)

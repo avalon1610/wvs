@@ -56,5 +56,5 @@ def validate(res):
 
 
 if __name__=='__main__':
-    from dummy import*
+    from dummy import *
     audit(assign('wordpress','http://www.abc.com/')[1])

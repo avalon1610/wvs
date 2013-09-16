@@ -13,6 +13,9 @@ from twisted.internet import tksupport
 from rwvs.session import Session
 import os,sys
 
+def log():
+	pass
+
 class App(Frame):
 	plugins = {}
 	def __init__(self,master=None):
@@ -26,10 +29,9 @@ class App(Frame):
 		
 		for mod,var in self.plugins.iteritems():
 			if var.get() == 1:
-				ss = Session()
-				print sys.executable
-				cmd = [sys.executable,'.\\rwvs\\plugins\\%s.py %s' % (mod,url)]
-				reactor.spawnProcess(ss,cmd[0])
+				ss = Session(mod)
+				cmd = [sys.executable,'.\\rwvs\\plugins\\%s.py' % mod,url]
+				reactor.spawnProcess(ss,cmd[0],cmd)
 
 		# spider = DmozSpider(url=url)
 		# crawler = Crawler(Settings())
@@ -106,9 +108,10 @@ class App(Frame):
 
 				if mod_name != '':
 					continue
-				mod_name = 'load plugin failed:%s' % f
-				Checkbutton(var[number],style='disable.TCheckbutton',text=mod_name).grid(row=py_row,column=0,sticky=W)
-				py_row += 1
+				if (var.has_key(number)):
+					mod_name = 'load plugin failed:%s' % f
+					Checkbutton(var[number],style='disable.TCheckbutton',text=mod_name).grid(row=py_row,column=0,sticky=W)
+					py_row += 1
 
 		plugins_nb.pack(expand=1,fill='both')
 		plugins_nb.enable_traversal()
