@@ -20,13 +20,13 @@ class Session(protocol.ProcessProtocol):
 
 	def send(self,data):
 		self.transport.write(data)
-		self.log('Sent:%s' % data)
+		self.log('%s' % data)
 		
 	def outReceived(self,data):
-		self.log('Recv:%s' % data)
+		self.log('%s' % data)
 
 	def errReceived(self,data):
-		self.log('Recv:%s' % data,ERROR)
+		self.log('%s' % data,ERROR)
 
 	def processEnded(self,reason):
 		self.log('Process END:%s' % reason.value.exitCode,ERROR)

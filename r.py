@@ -30,7 +30,7 @@ class App(Frame):
 		for mod,var in self.plugins.iteritems():
 			if var.get() == 1:
 				ss = Session(mod)
-				cmd = [sys.executable,'.\\rwvs\\plugins\\%s.py' % mod,url]
+				cmd = [sys.executable,'.\\rwvs\\pluginsmanager.py',mod,url]
 				reactor.spawnProcess(ss,cmd[0],cmd)
 
 		# spider = DmozSpider(url=url)
@@ -78,6 +78,10 @@ class App(Frame):
 			py_row = 0
 			for f in files:
 				if f.find('.py') == -1:
+					continue
+				if f.find('.pyc') != -1:
+					continue
+				if f.find('__init__') != -1:
 					continue
 				mod_name = ''
 				mod_description = ''
