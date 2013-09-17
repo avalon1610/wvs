@@ -3,6 +3,7 @@
 
 from Tkinter import *
 from ttk import *
+import tkMessageBox
 from twisted.internet import reactor
 from scrapy.crawler import Crawler
 from scrapy.settings import Settings
@@ -10,28 +11,58 @@ from scrapy import log,signals
 from rwvs.spiders.dmoz_spider import DmozSpider
 from scrapy.xlib.pydispatch import dispatcher
 from twisted.internet import tksupport
-from rwvs.session import Session
+from rwvs.session import Session,checkrunning
 import os,sys
+from urlparse import urlparse
 
 def log():
 	pass
 
 class App(Frame):
 	plugins = {}
+	sessionlist = []
 	def __init__(self,master=None):
+		self.root = Tk()
+		# 几号写轮眼，随你喜欢
+		self.root.wm_iconbitmap('.\\rwvs\\resource\\sharieye_04.ico')
 		Frame.__init__(self,master)
 		self._url = StringVar()
 		self.pack()
 		self.doPaint()
 
 	def Launch(self):
+		if checkrunning(0) > 0 and len(self.sessionlist) > 0:
+			# stop it 
+			for ss in self.sessionlist:
+				if not ss.ss_done:
+					ss.send('Abort')
+			return
+
 		url = self._url.get()
+		if not url:
+			return
 		
+		del self.sessionlist[:]
+		scheme,netloc,path,params,query,fragment = urlparse(url)
+		if len(scheme) == 0 and len(netloc) == 0:
+			url = 'http://' + url
+			scheme,netloc,path,params,query,fragment = urlparse(url)
+		if len(scheme) == 0:
+			scheme = 'http'
+		url = scheme + '://' + netloc + '/'
+
+		self.log.delete(1.0,END)
+		self.result.delete(1.0,END)
 		for mod,var in self.plugins.iteritems():
 			if var.get() == 1:
-				ss = Session(mod)
+				ss = Session(mod,self)
+				self.sessionlist.append(ss)
 				cmd = [sys.executable,'.\\rwvs\\pluginsmanager.py',mod,url]
 				reactor.spawnProcess(ss,cmd[0],cmd)
+				checkrunning(1)
+
+		self.root.title('RazWVS - Running...')
+		self.go['text'] = 'STOP'
 
 		# spider = DmozSpider(url=url)
 		# crawler = Crawler(Settings())
@@ -47,9 +78,10 @@ class App(Frame):
 		topframe = Frame()
 		Label(topframe,text='URL:',width=4).pack(side='left')
 		Entry(topframe,textvariable=self._url).pack(side='left',expand=1,fill='x') 
-		go = Button(topframe,text="GO",width=10,style='x.TButton')
-		go.pack(side='right')
-		go['command'] = self.Launch
+		self.go = Button(topframe,text="GO",width=10,style='x.TButton')
+		self.go.pack(side='right')
+		self.go['command'] = self.Launch
+		self.root.bind('<Return>',lambda e:self.go.invoke())
 		topframe.pack(side='top',fill='x')
 
 		nb = Notebook()
@@ -57,8 +89,10 @@ class App(Frame):
 		resultframe = Frame(nb)
 		pluginframe = Frame(nb)
 		
-		Text(logframe).pack(expand=1,fill='both')
-		Text(resultframe).pack(expand=1,fill='both')
+		self.log = Text(logframe)
+		self.log.pack(expand=1,fill='both')
+		self.result = Text(resultframe)
+		self.result.pack(expand=1,fill='both')
 		nb.add(pluginframe,text='PLUGIN')
 		nb.add(logframe,text='LOG')
 		nb.add(resultframe,text='RESULT')
@@ -106,6 +140,7 @@ class App(Frame):
 						var[mod] = Checkbutton(var[number],text=mod_name,variable=check_var)
 						var[mod].grid(row=py_row,column=0,sticky=W)
 						var[mod].invoke()
+						var[mod].invoke()
 						self.plugins[mod] = check_var
 						py_row += 1
 						break
@@ -125,7 +160,7 @@ def close(e):
 
 if __name__ == "__main__":
 	a = App()
-	a.master.title('Raz WVS')
+	a.master.title('RazWVS')
 	a.bind('<Destroy>', close)
 	tksupport.install(a)
 	reactor.run()
