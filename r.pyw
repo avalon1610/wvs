@@ -5,18 +5,11 @@ from Tkinter import *
 from ttk import *
 import tkMessageBox
 from twisted.internet import reactor
-from scrapy.crawler import Crawler
-from scrapy.settings import Settings
-from scrapy import log,signals
-from rwvs.spiders.dmoz_spider import DmozSpider
 from scrapy.xlib.pydispatch import dispatcher
 from twisted.internet import tksupport
 from rwvs.session import Session,checkrunning
 import os,sys
 from urlparse import urlparse
-
-def log():
-	pass
 
 class App(Frame):
 	plugins = {}
@@ -63,12 +56,6 @@ class App(Frame):
 
 		self.root.title('RazWVS - Running...')
 		self.go['text'] = 'STOP'
-
-		# spider = DmozSpider(url=url)
-		# crawler = Crawler(Settings())
-		# crawler.configure()
-		# crawler.crawl(spider)
-		# crawler.start()
 
 	def doPaint(self):
 		style = Style()

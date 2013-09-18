@@ -4,8 +4,8 @@ from scrapy.selector import HtmlXPathSelector
 from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
 from rwvs.items import DmozItem
 
-class DmozSpider(BaseSpider):
-	name = 'dmoz'
+class RwvsSpider(BaseSpider):
+	name = 'rwvs'
 	def __init__(self,**kw):
 		super(DmozSpider,self).__init__(**kw)
 		url = kw.get('url') or kw.get('domain')

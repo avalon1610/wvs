@@ -2,6 +2,11 @@ import sys
 import imp
 from twisted.protocols import basic
 from twisted.internet import stdio,reactor
+from scrapy.crawler import Crawler
+from scrapy.settings import Settings
+from scrapy import log,signals
+from rwvs.spiders.rwvs_spider import RwvsSpider
+import curl
 
 def closesession(fn):
 	def close(*args):
@@ -26,8 +31,27 @@ def security_warning(str):
 def security_hole(str):
 	print str
 
+def CheckCMD(url):
+	import cms
+	for c in cmslist:
+		path,key,name = c.split('------')
+		uri = url + path
+		code,_,res,errcode,_,errstr = curl.curl(uri)
+		if code != 200:
+			continue
+		if res.find(key) != -1:
+			print 'spot %s' % name
+			break
+
 def CheckService(url):
-	return 'wordpress'
+	service = CheckCMS(url)
+
+	# spider = RwvsSpider(url=url)
+	# crawler = Crawler(Settings())
+	# crawler.configure()
+	# crawler.crawl(spider)
+	# crawler.start()
+	return service
 
 class PluginLauncher(basic.LineReceiver):
 	from os import linesep as delimiter
