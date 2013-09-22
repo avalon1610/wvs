@@ -1,8 +1,7 @@
 #!/usr/bin/envpython',
 #-*-coding:utf-8-*-',
 
-cmslist = [
-# AspCMS',
+AspCMS = [
 '/install/------aspcms------AspCMS',
 '/about/_notes/dwsync.xml------aspcms------AspCMS',
 '/admin/_Style/_notes/dwsync.xml------aspcms------AspCMS',
@@ -11,8 +10,9 @@ cmslist = [
 '/fckeditor/fckconfig.js------aspcms------AspCMS',
 '/gbook/_notes/dwsync.xml------aspcms------AspCMS',
 '/inc/_notes/dwsync.xml------aspcms------AspCMS',
-'/plug/comment.html------aspcms------AspCMS',
-# DedeCMS(织梦)',
+'/plug/comment.html------aspcms------AspCMS']
+
+DedeCMS = [
 '/data/admin/allowurl.txt------dedecms------DedeCMS(织梦)',
 '/data/index.html------dedecms------DedeCMS(织梦)',
 '/data/js/index.html------dedecms------DedeCMS(织梦)',
@@ -30,10 +30,11 @@ cmslist = [
 '/setup/license.html------dedecms------DedeCMS(织梦)',
 '/special/index.html------dedecms------DedeCMS(织梦)',
 '/templets/default/style/dedecms.css------dedecms------DedeCMS(织梦)',
-'/company/template/default/search_list.htm------dedecms------DedeCMS(织梦)',
+'/company/template/default/search_list.htm------dedecms------DedeCMS(织梦)']
+
+Discuz = [
 '/------Powered by.*?<------Discuz!------Discuz(康盛)',
 '/------Powered by.*?</a></strong>------Discuz!------Discuz(康盛)',
-# Discuz(康盛)',
 '/robots.txt------discuz------Discuz(康盛)',
 '/bbcode.js------discuz------Discuz(康盛)',
 '/newsfader.js------discuz------Discuz(康盛)',
@@ -54,8 +55,9 @@ cmslist = [
 '/templates.cdb------discuz------Discuz(康盛)',
 '/u2upopup.js------discuz------Discuz(康盛)',
 '/mspace/default1/style.ini------discuz------Discuz(康盛)',
-'/uc_server/view/default/admin_frame_main.htm------discuz------Discuz(康盛)',
-# Drupal(水滴)',
+'/uc_server/view/default/admin_frame_main.htm------discuz------Discuz(康盛)']
+
+Drupal = [
 '/INSTALL------drupal------Drupal(水滴)',
 '/MAINTAINERS------drupal------Drupal(水滴)',
 '/.gitattributes------drupal------Drupal(水滴)',
@@ -100,8 +102,9 @@ cmslist = [
 '/INSTALL.txt------drupal------Drupal(水滴)',
 '/MAINTAINERS.txt------drupal------Drupal(水滴)',
 '/UPGRADE.txt------drupal------Drupal(水滴)',
-'/modules/legacy/legacy.info------drupal------Drupal(水滴)',
-#Dvbbs(动网)',
+'/modules/legacy/legacy.info------drupal------Drupal(水滴)']
+
+Dvbbs = [
 '/Admin/images/admin.js------dvbbs------Dvbbs(动网)',
 '/admin/inc/admin.js------dvbbs------Dvbbs(动网)',
 '/admin/left.htm------dvbbs------Dvbbs(动网)',
@@ -133,8 +136,9 @@ cmslist = [
 '/Resource/Template_1/boardhelp_html4.htm------dvbbs------Dvbbs(动网)',
 '/Skins/aspsky_1.css------dvbbs------Dvbbs(动网)',
 '/skins/classical.css------dvbbs------Dvbbs(动网)',
-'/skins/myspace/default01/demo.htm------dvbbs------Dvbbs(动网)',
-#Ecshop(商派)',
+'/skins/myspace/default01/demo.htm------dvbbs------Dvbbs(动网)']
+
+Ecshop = [
 '/install/------ecshop------Ecshop(商派)',
 '/admin/ecshopfiles.md5------ecshop------Ecshop(商派)',
 '/admin/help/zh_cn/database.xml------ecshop------Ecshop(商派)',
@@ -159,8 +163,9 @@ cmslist = [
 '/themes/Blueocean/library/comments.lbi------ecshop------Ecshop(商派)',
 '/themes/default_old/library/comments.lbi------ecshop------Ecshop(商派)',
 '/wap/templates/article.wml------ecshop------Ecshop(商派)',
-'/widget/blog_sohu.xhtml------ecshop------Ecshop(商派)',
-#Emlog',
+'/widget/blog_sohu.xhtml------ecshop------Ecshop(商派)']
+
+Emlog = [
 '/robots.txt------emlog------Emlog',
 '/wlwmanifest.xml------emlog------Emlog',
 '/content/cache/links------emlog------Emlog',
@@ -170,8 +175,9 @@ cmslist = [
 '/admin/views/style/default/style.css------emlog------Emlog',
 '/admin/views/style/green/style.css------emlog------Emlog',
 '/content/templates/default/main.css------emlog------Emlog',
-'/content/templates/default/tpl.ini------emlog------Emlog',
-#EmpireCMS(帝国)',
+'/content/templates/default/tpl.ini------emlog------Emlog']
+
+EmpireCMS = [
 '/robots.txt------empirecms------EmpireCMS(帝国)',
 '/d/file/index.html------empirecms------EmpireCMS(帝国)',
 '/d/file/p/index.html------empirecms------EmpireCMS(帝国)',
@@ -199,8 +205,9 @@ cmslist = [
 '/install/data/empiredown.com.sql------empirecms------EmpireCMS(帝国)',
 '/s/index.html------empirecms------EmpireCMS(帝国)',
 '/search/index.html------empirecms------EmpireCMS(帝国)',
-'/t/index.html------empirecms------EmpireCMS(帝国)',
-#EspCMS(易思)',
+'/t/index.html------empirecms------EmpireCMS(帝国)']
+
+EspCMS = [
 '/license.txt------espcms------EspCMS(易思)',
 '/------espcms------EspCMS(易思)',
 '/adminsoft/control/connected.php------espcms------EspCMS(易思)',
@@ -214,8 +221,9 @@ cmslist = [
 '/install/templates/step.html------espcms------EspCMS(易思)',
 '/public/class_dbmysql.php------espcms------EspCMS(易思)',
 '/templates/wap/cn/public/footer.html------espcms------EspCMS(易思)',
-'/templates/wap/en/public/footer.html------espcms------EspCMS(易思)',
-#FoosunCMS(风讯)',
+'/templates/wap/en/public/footer.html------espcms------EspCMS(易思)']
+
+FoosunCMS = [
 '/Index.html------foosuncms------FoosunCMS(风讯)',
 '/Apsearch.html------foosuncms------FoosunCMS(风讯)',
 '/search.html------foosuncms------FoosunCMS(风讯)',
@@ -236,8 +244,9 @@ cmslist = [
 '/User/contr/lib/vssver2.scc------foosuncms------FoosunCMS(风讯)',
 '/Users/All_User.Asp------foosuncms------FoosunCMS(风讯)',
 '/Users/Mall/OrderPrint.Asp------foosuncms------FoosunCMS(风讯)',
-'/xml/products/dotnetcmsversion.xml------foosuncms------FoosunCMS(风讯)',
-#HdWiki(中文维基)',
+'/xml/products/dotnetcmsversion.xml------foosuncms------FoosunCMS(风讯)']
+
+HdWiki = [
 '/robots.txt------hdwiki------HdWiki(中文维基)',
 '/install/testdata/hdwikitest.sql------hdwiki------HdWiki(中文维基)',
 '/js/api.js------hdwiki------HdWiki(中文维基)',
@@ -253,8 +262,9 @@ cmslist = [
 '/style/aoyun/hdwiki.css------hdwiki------HdWiki(中文维基)',
 '/style/default/admin/admin.css------hdwiki------HdWiki(中文维基)',
 '/style/default/desc.xml------hdwiki------HdWiki(中文维基)',
-'/view/default/admin_addlink.htm------hdwiki------HdWiki(中文维基)',
-#Joomla(逐浪)',
+'/view/default/admin_addlink.htm------hdwiki------HdWiki(中文维基)']
+
+Joomla = [
 '/htaccess.txt------joomla------Joomla(逐浪)',
 '/CONTRIBUTING.md------joomla------Joomla(逐浪)',
 '/phpunit.xml.dist------joomla------Joomla(逐浪)',
@@ -280,8 +290,9 @@ cmslist = [
 '/media/jui/css/chosen.css------joomla------Joomla(逐浪)',
 '/modules/mod_banners/mod_banners.xml------joomla------Joomla(逐浪)',
 '/plugins/authentication/joomla/joomla.xml------joomla------Joomla(逐浪)',
-'/templates/atomic/css/template.css------joomla------Joomla(逐浪)',
-#KesionCMS(科讯)',
+'/templates/atomic/css/template.css------joomla------Joomla(逐浪)']
+
+KesionCMS = [
 '/Admin/Include/version.xml------kesioncms------KesionCMS(科讯)',
 '/API/api.config------kesioncms------KesionCMS(科讯)',
 '/Config/filtersearch/s3.xml------kesioncms------KesionCMS(科讯)',
@@ -291,8 +302,9 @@ cmslist = [
 '/JS/12.js------kesioncms------KesionCMS(科讯)',
 '/KS_Inc/ajax.js------kesioncms------KesionCMS(科讯)',
 '/Space/js/ks.space.page.js------kesioncms------KesionCMS(科讯)',
-'/template/common/activecode.html------kesioncms------KesionCMS(科讯)',
-#KingCMS',
+'/template/common/activecode.html------kesioncms------KesionCMS(科讯)']
+
+KingCMS = [
 '/install.sql------kingcms------KingCMS',
 '/install.php------kingcms------KingCMS',
 '/INSTALL.php------kingcms------KingCMS',
@@ -341,8 +353,9 @@ cmslist = [
 '/template/default.htm------kingcms------KingCMS',
 '/Tools/index.asp------kingcms------KingCMS',
 '/user/index.php------kingcms------KingCMS',
-'/webftp/index.asp------kingcms------KingCMS',
-#liangjing(良精)',
+'/webftp/index.asp------kingcms------KingCMS']
+
+liangjing = [
 '/------liangjing------liangjing(良精)',
 '/Global.asax------ljcms------LjCMS(良精)',
 '/Web.config------ljcms------LjCMS(良精)',
@@ -360,8 +373,9 @@ cmslist = [
 '/Enrss.xml------liangjing------liangjing(良精)',
 '/Ch/Memberphoto.Asp------liangjing------liangjing(良精)',
 '/En/Foot.Asp------liangjing------liangjing(良精)',
-'/Html_skin30/enabout.html------liangjing------liangjing(良精)',
-#PHP168(国徽)',
+'/Html_skin30/enabout.html------liangjing------liangjing(良精)']
+
+PHP168 = [
 '/readme.txt------php168------PHP168(国徽)',
 '/ckeditor/plugins/gallery/plugin.js------php168------PHP168(国徽)',
 '/install/------php168------PHP168(国徽)',
@@ -374,8 +388,9 @@ cmslist = [
 '/js/util.js------php168------PHP168(国徽)',
 '/plugin/qqconnect/bind.html------php168------PHP168(国徽)',
 '/skin/admin/style.css------php168------PHP168(国徽)',
-'/template/admin/ask/config.html------php168------PHP168(国徽)',
-#phpCMS(盛大)',
+'/template/admin/ask/config.html------php168------PHP168(国徽)']
+
+phpCMS = [
 '/index.html------phpcms------phpCMS(盛大)',
 '/robots.txt------phpcms------phpCMS(盛大)',
 '/admin/index.htm------phpcms------phpCMS(盛大)',
@@ -414,8 +429,9 @@ cmslist = [
 '/video/install/templates/category.html------phpcms------phpCMS(盛大)',
 '/vote/install/templates/index.html------phpcms------phpCMS(盛大)',
 '/wenba/install/mysql.sql------phpcms------phpCMS(盛大)',
-'/yp/images/js/global.js------phpcms------phpCMS(盛大)',
-#PHPWind',
+'/yp/images/js/global.js------phpcms------phpCMS(盛大)']
+
+PHPWind = [
 '/licence.txt------phpwind------PHPWind',
 '/robots.txt------phpwind------PHPWind',
 '/recommend.html------phpwind------PHPWind',
@@ -452,8 +468,9 @@ cmslist = [
 '/u/themes/default/footer.htm------phpwind------PHPWind',
 '/windid/res/css/admin_layout.css------phpwind------PHPWind',
 '/windid/res/js/dev/pages/admin/auth_manage.js------phpwind------PHPWind',
-'/windid/res/js/dev/wind.js------phpwind------PHPWind',
-#PowerEasy(动易)',
+'/windid/res/js/dev/wind.js------phpwind------PHPWind']
+
+PowerEasy = [
 '/License.txt------powereasy------PowerEasy(动易)',
 '/Web.config------powereasy------PowerEasy(动易)',
 '/rss.xsl------powereasy------PowerEasy(动易)',
@@ -483,8 +500,9 @@ cmslist = [
 '/Template/Default/Skin/user/default.css------powereasy------PowerEasy(动易)',
 '/User/Accessories/AvatarUploadHandler.ashx------powereasy------PowerEasy(动易)',
 '/wap/Language/Gb2312.xml------powereasy------PowerEasy(动易)',
-'/WebServices/CategoryService.asmx------powereasy------PowerEasy(动易)',
-#qiboSoft(齐博)',
+'/WebServices/CategoryService.asmx------powereasy------PowerEasy(动易)']
+
+qiboSoft = [
 '/install/------qiboSoft------qiboSoft(齐博)',
 '/a_d/install/data.sql------qiboSoft------qiboSoft(齐博)',
 '/admin/template/article_more/config.htm------qiboSoft------qiboSoft(齐博)',
@@ -508,8 +526,9 @@ cmslist = [
 '/member/template/default/homepage.htm------qiboSoft------qiboSoft(齐博)',
 '/template/default/cutimg.htm------qiboSoft------qiboSoft(齐博)',
 '/template/special/showsp2.htm------qiboSoft------qiboSoft(齐博)',
-'/wap/template/foot.htm------qiboSoft------qiboSoft(齐博)',
-#SiteServer',
+'/wap/template/foot.htm------qiboSoft------qiboSoft(齐博)']
+
+SiteServer = [
 '/robots.txt------siteserver------SiteServer',
 '/------siteserver------SiteServer',
 '/Web.config------siteserver------SiteServer',
@@ -528,8 +547,9 @@ cmslist = [
 '/SiteServer/Themes/Language/en.xml------siteserver------SiteServer',
 '/SiteServer/Themes/Skins/Skin-DirectoryTree.ascx------siteserver------SiteServer',
 '/SiteServer/UserCenter/Skins/Skin-Footer.ascx------siteserver------SiteServer',
-'/UserCenter/Inc/script.js------siteserver------SiteServer',
-#Southidc(南方数据)',
+'/UserCenter/Inc/script.js------siteserver------SiteServer']
+
+Southidc = [
 '/Add.ASP------southidc------Southidc(南方数据)',
 '/Admin/Images/southidc.css------southidc------Southidc(南方数据)',
 '/admin/Inc/southidc.css------southidc------Southidc(南方数据)',
@@ -541,8 +561,9 @@ cmslist = [
 '/Inc/NoSqlHack.Asp------southidc------Southidc(南方数据)',
 '/Map/51ditu/Index.Asp------southidc------Southidc(南方数据)',
 '/Qq/xml/qq.xml------southidc------Southidc(南方数据)',
-'/Script/Html.js------southidc------Southidc(南方数据)',
-#WordPress',
+'/Script/Html.js------southidc------Southidc(南方数据)']
+
+WordPress = [
 '/robots.txt------wordpress------WordPress',
 '/license.txt------wordpress------WordPress',
 '/readme.txt------wordpress------WordPress',
@@ -559,8 +580,9 @@ cmslist = [
 '/wp-includes/js/scriptaculous/wp-scriptaculous.js------wordpress------WordPress',
 '/wp-includes/js/tinymce/langs/wp-langs-en.js------wordpress------WordPress',
 '/wp-includes/js/tinymce/wp-tinymce.js------wordpress------WordPress',
-'/wp-includes/wlwmanifest.xml------wordpress------WordPress',
-#Z-Blog',
+'/wp-includes/wlwmanifest.xml------wordpress------WordPress']
+
+Z_Blog = [
 '/license.txt------z-blog------Z-Blog',
 '/PLUGIN/BackupDB/plugin.xml------z-blog------Z-Blog',
 '/PLUGIN/PingTool/plugin.xml------z-blog------Z-Blog',
@@ -578,5 +600,9 @@ cmslist = [
 '/zb_users/THEME/default/theme.xml------z-blog------Z-Blog',
 '/zb_users/THEME/HTML5CSS3/theme.xml------z-blog------Z-Blog',
 '/zb_users/THEME/metro/TEMPLATE/footer.html------z-blog------Z-Blog',
-'/zb_users/THEME/metro/theme.xml------z-blog------Z-Blog',
-]
+'/zb_users/THEME/metro/theme.xml------z-blog------Z-Blog']
+
+
+cmslist = [WordPress,AspCMS,DedeCMS,Discuz,Drupal,Dvbbs,Ecshop,Emlog,EmpireCMS,FoosunCMS,HdWiki,
+	Joomla,KesionCMS,KingCMS,liangjing,PHP168,phpCMS,PHPWind,PowerEasy,qiboSoft,SiteServer,
+	Southidc,Z_Blog]

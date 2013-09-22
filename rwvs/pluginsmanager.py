@@ -5,7 +5,7 @@ from twisted.internet import stdio,reactor
 from scrapy.crawler import Crawler
 from scrapy.settings import Settings
 from scrapy import log,signals
-from rwvs.spiders.rwvs_spider import RwvsSpider
+from spiders.rwvs_spider import RwvsSpider
 import curl
 
 def closesession(fn):
@@ -31,17 +31,36 @@ def security_warning(str):
 def security_hole(str):
 	print str
 
-def CheckCMD(url):
-	import cms
+def CheckCMS(url):
+	from cms import cmslist
+	
+	url = url.rstrip('/')
 	for c in cmslist:
-		path,key,name = c.split('------')
-		uri = url + path
-		code,_,res,errcode,_,errstr = curl.curl(uri)
-		if code != 200:
-			continue
-		if res.find(key) != -1:
-			print 'spot %s' % name
-			break
+		queue = []
+		for url_info in c:
+			info = url_info.split('------')
+			if len(info) == 3:
+				path,key,name = info
+			else:
+				path,regx,key,name = info
+			uri = url+path
+			queue.append(uri)
+
+		print 'checking %s' % name
+		results = []
+		def show(x):
+			code = x.getinfo(x.HTTP_CODE)
+			print code, x.getinfo(x.EFFECTIVE_URL)
+			if code == 200:
+				results.append(x)
+
+		curl.curlm(queue,show)
+		for r in results:
+			if r.content.getvalue().lower().find(key) != -1:
+				print 'spot %s' % name
+				return key
+	
+	return None
 
 def CheckService(url):
 	service = CheckCMS(url)
@@ -68,7 +87,7 @@ class PluginLauncher(basic.LineReceiver):
 		audit = getattr(module,'audit')
 		assign = getattr(module,'assign')
 
-		CheckService(url)
+		CheckService(self.url)
 		try:
 			if assign:
 				audit(self.url)
@@ -91,6 +110,14 @@ def main():
 	stdio.StandardIO(PluginLauncher(mod,url))
 	reactor.run()
 
+# for test
+def test():
+	if len(sys.argv) < 2:
+		return
+	url = sys.argv[1]
+	CheckService(url)
+
 if __name__=='__main__':
-	main()
+	# main()
+	test()
 	

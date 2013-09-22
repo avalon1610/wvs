@@ -1,6 +1,7 @@
 #!/usr/bin/envpython
 #-*-coding:utf-8-*-
 
+import threading
 import pycurl
 import StringIO
 
@@ -49,6 +50,62 @@ def curl(url):
 	 #  # custome error 
 	 #  CURLE_ARG_ERROR = 8 
 	 #  CURLE_MIME_ERROR = 9 
-	
+
+
+class UrlOpen(threading.Thread):
+	def __init__(self):
+		super(UrlOpen,self).__init__()
+		self.opener = pycurl.CurlMulti()
+		self.handle_list = []
+
+	def add(self,url,recall,writer=StringIO.StringIO()):
+		c = pycurl.Curl()
+		c.url = url
+		c.content = writer
+		c.recall = recall
+		c.setopt(c.URL,url)
+		c.setopt(c.WRITEFUNCTION,c.content.write)
+
+		self.handle_list.append(c)
+		self.opener.add_handle(c)
+
+	def _remove(self,c):
+		c.close()
+		self.opener.remove_handle(c)
+		self.handle_list.remove(c)
+
+	def run(self):
+		num_handle = len(self.handle_list)
+		while num_handle:
+			ret = self.opener.select(5.0)
+			if ret == -1:
+				continue
+			while 1:
+				num_handle_pre = num_handle
+				ret,num_handle = self.opener.perform()
+				if num_handle != num_handle_pre:
+					result = self.opener.info_read()
+					for i in result[1]:
+						i.http_code = i.getinfo(i.HTTP_CODE)
+						i.recall(i)
+						self._remove(i)
+					for i in result[2]:
+						# fail
+						print i
+						self._remove(i)
+
+				if ret != pycurl.E_CALL_MULTI_PERFORM:
+					break
+
+_opener = None
+
+def curlm(urllist,callback):
+	global _opener
+	_opener = UrlOpen()
+	for url in urllist:
+		_opener.add(url,callback)
+	_opener.start()
+	_opener.join()
+
 if __name__=='__main__':
 	print curl('http://xiaonei.com/')

@@ -2,7 +2,7 @@ from urlparse import urlparse
 from scrapy.spider import BaseSpider
 from scrapy.selector import HtmlXPathSelector
 from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
-from rwvs.items import DmozItem
+# from rwvs.items import DmozItem
 
 class RwvsSpider(BaseSpider):
 	name = 'rwvs'
