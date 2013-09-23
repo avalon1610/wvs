@@ -73,14 +73,27 @@ class App(Frame):
 
 		nb = Notebook()
 		logframe = Frame(nb)
+		settingframe = Frame(nb)
 		resultframe = Frame(nb)
 		pluginframe = Frame(nb)
 		
+		subdomain_var = IntVar()
+		sub_cb = Checkbutton(settingframe,text='子域名扫描',variable=subdomain_var,onvalue=1,offvalue=0)
+		sub_cb.pack(side='left',anchor='nw')
+		sub_cb.invoke()
+		sub_cb.invoke()
+
+		port_var = IntVar()
+		port_cb = Checkbutton(settingframe,text='常见端口扫描',variable=port_var)
+		port_cb.pack(side='left',anchor='nw')
+
+
 		self.log = Text(logframe)
 		self.log.pack(expand=1,fill='both')
 		self.result = Text(resultframe)
 		self.result.pack(expand=1,fill='both')
 		nb.add(pluginframe,text='PLUGIN')
+		nb.add(settingframe,text='SETTING')
 		nb.add(logframe,text='LOG')
 		nb.add(resultframe,text='RESULT')
 		nb.pack(expand=1,fill='both')

@@ -62,7 +62,18 @@ def CheckCMS(url):
 	
 	return None
 
+def SubDomainScan(url):
+	domain = url.split(':')[1].strip('/')
+	code,head,res,errcode,_,errstr=curl.curl('-d domain=%s&b2=1 http://i.links.cn/subdomain/' % domain)
+	if code == 200:
+		import lxml.html
+		dom = lxml.html.fromstring(res.replace('\x00','').decode('utf-8', 'ignore'))
+		domainlist = dom.xpath("//div[@class='domain']/a")
+		for d in domainlist:
+			print d.attrib['href']
+
 def CheckService(url):
+	SubDomainScan(url)
 	service = CheckCMS(url)
 
 	# spider = RwvsSpider(url=url)

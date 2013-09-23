@@ -7,6 +7,10 @@ import StringIO
 
 def curl(url):
 	c = pycurl.Curl()
+	if url.find('-d') != -1:
+		post_data = url.split(' ')[1]
+		url = url.split(' ')[2]
+		c.setopt(c.POSTFIELDS,post_data)
 	headerbuffer = StringIO.StringIO()
 	bodybuffer = StringIO.StringIO()
 	c.setopt(c.URL,url)
