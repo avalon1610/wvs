@@ -2,9 +2,60 @@
 <html>
 	<head>
 		<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+		<style type="text/css">
+		::selection {
+			background: #e64141
+		}
+		body {
+			color: #9b9b9b;
+			background: #292929;
+		}
+		#wrapper {
+			min-height: 600px;
+		}
+		#header {
+			position: absolute;
+			top: 100px;
+		}
+		
+		</style>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		{% load staticfiles %}
+		<script type="text/javascript" src="{% static "js/jquery.smint.js" %}"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$('#header').smint({
+				'scrollSpeed':1000
+			});
+		});
+		</script>
 	</head>
-	<body>
+	<body onload="setTimeout(function() { window.scrollTo(0, 1) }, 100);">
+		<div>
+			RWVS - dark lady watch over you
+		</div>
+		<div id="wrapper">
+			<div id="header">
+				{% block header %}{% endblock %}
+			</div>
+		</div
 		{% block time %}{% endblock %}
-		{% block %}
+		<p>bbbbbbbbbbbbbbbbbbbbb</p>
+		<p>bbbbbbbbbbbbbbbbbbbbb</p>
+			<p>bbbbbbbbbbbbbbbbbbbbb</p>
+		<p>bbbbbbbbbbbbbbbbbbbbb</p>
+			<p>bbbbbbbbbbbbbbbbbbbbb</p>
+		<p>bbbbbbbbbbbbbbbbbbbbb</p>
+			<p>bbbbbbbbbbbbbbbbbbbbb</p>
+		<p>bbbbbbbbbbbbbbbbbbbbb</p>
+			<p>bbbbbbbbbbbbbbbbbbbbb</p>
+		<p>bbbbbbbbbbbbbbbbbbbbb</p>
+
+			<p>bbbbbbbbbbbbbbbbbbbbb</p>
+		<p>bbbbbbbbbbbbbbbbbbbbb</p>
+			<p>bbbbbbbbbbbbbbbbbbbbb</p>
+		<p>bbbbbbbbbbbbbbbbbbbbb</p>
+			<p>bbbbbbbbbbbbbbbbbbbbb</p>
+		<p>bbbbbbbbbbbbbbbbbbbbb</p>
 	</body>
 </html>
