@@ -22,7 +22,7 @@ If you like Smint, or have suggestions on how it could be improved, send me a tw
             }, options);
 
 
-		return $('.smint a').each( function() {
+		return $('.smint').each( function() {
 
             
 			if ( settings.scrollSpeed ) {
@@ -36,6 +36,9 @@ If you like Smint, or have suggestions on how it could be improved, send me a tw
 
 			// get initial top offset for the menu 
 			var stickyTop = $('.smint').offset().top;	
+			var stickyWidth = $('.smint').width();
+			var paddingleft = $('.smint').css('padding-left');
+			var paddingright = $('.smint').css('padding-right');
 
 			// check position and make sticky if needed
 			var stickyMenu = function(){
@@ -45,10 +48,11 @@ If you like Smint, or have suggestions on how it could be improved, send me a tw
 							
 				// if we scroll more than the navigation, change its position to fixed and add class 'fxd', otherwise change it back to absolute and remove the class
 				if (scrollTop > stickyTop) { 
-					$('.smint').css({ 'position': 'fixed', 'top':0 }).addClass('fxd');
-
+					$('.smint').css({ 'position': 'fixed', 'top':0 ,'width':stickyWidth}).addClass('fxd');
+					$('.smint').css({'padding-right':paddingright,'padding-left':paddingleft});
 					} else {
-						$('.smint').css({ 'position': 'absolute', 'top':stickyTop }).removeClass('fxd'); 
+						//$('.smint').css({ 'position': 'fixed', 'top':stickyTop }).removeClass('fxd'); 
+						$('.smint').css({ 'position': 'static','margin-top':'25px'}).removeClass('fxd'); 
 					}   
 			};
 					
@@ -62,7 +66,7 @@ If you like Smint, or have suggestions on how it could be improved, send me a tw
 
 			///////////////////////////////////////
     
-        
+        	/*
         	$(this).on('click', function(e){
 
 
@@ -82,7 +86,7 @@ If you like Smint, or have suggestions on how it could be improved, send me a tw
 				$("html, body").animate({ scrollTop: goTo }, scrollSpeed);
 
 			});	
-
+			*/
             
 
 		});

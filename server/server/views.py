@@ -10,6 +10,6 @@ def current_datetime(request):
 	return render(request,'current_datetime.html',{'current_date':now})
 
 def main(request):
-	l = '离离原上草 一岁一枯荣 野火烧不尽 春风吹又生'
-	return render(request,'header.html',{'list':l})
+	l = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+	return render(request,'toolbar.html',{'list':l})
 

@@ -7,6 +7,7 @@ from django.conf import settings
 
 urlpatterns = patterns('',
 	url(r'^$',main),
+	url(r'^.+\.html$',main),
 	url(r'^time/$',current_datetime),
     # Examples:
     # url(r'^$', 'server.views.home', name='home'),

@@ -1,61 +1,117 @@
 <!DOCTYPE html>
-<html>
+<!-- [if lt IE 7]><html class="ie ie6" lang="en"><![endif]-->
+<!-- [if IE 7]><html class="ie ie7" lang="en"><![endif]-->
+<!-- [if IE 8]><html class="ie ie8" lang="en"><![endif]-->
+<!-- [if (gte IE 9)|!(IE)]><!-->
+<html lang="en" class="csstransforms csstransforms3d csstransitions js js">
+	<!--<![endif]-->
 	<head>
-		<meta content="text/html; charset=UTF-8" http-equiv="content-type">
-		<style type="text/css">
-		::selection {
-			background: #e64141
-		}
-		body {
-			color: #9b9b9b;
-			background: #292929;
-		}
-		#wrapper {
-			min-height: 600px;
-		}
-		#header {
-			position: absolute;
-			top: 100px;
-		}
-		
-		</style>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<meta charset="UTF-8">
+		<title>RWVS</title>
+		<meta name="description" content>
+		<meta name="author" content>
 		{% load staticfiles %}
+		<link rel="stylesheet" href="{% static "css/style.css" %}">
+		<link rel="stylesheet" href="{% static "css/skins/red.css" %}" name="skins">
+		<link rel="stylesheet" href="{% static "css/layout/wide.css" %}" name="layout" >
+		<link rel="stylesheet" href="{% static "css/icons.css" %}">
+		<style type="text/css">
+		.welcome {
+			min-height: 130px;
+			margin: 0
+		}
+		</style>
+		{% block toolbar_css %}{% endblock %}
+		<script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
 		<script type="text/javascript" src="{% static "js/jquery.smint.js" %}"></script>
+		<script type="text/javascript" src="{% static "js/jquery.easing.1.3.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "js/jquery-ui.min.js" %}"></script>
+		<!--<script type="text/javascript" src="{% static "js/jquery.uniform.min.js" %}"></script>-->
+		<script type="text/javascript" src="{% static "js/selectnav.js" %}"></script>
 		<script type="text/javascript">
 		$(document).ready(function(){
-			$('#header').smint({
+			$('.welcome').smint({
 				'scrollSpeed':1000
 			});
 		});
 		</script>
+		{% block toolbar_js %}{% endblock %}
 	</head>
 	<body onload="setTimeout(function() { window.scrollTo(0, 1) }, 100);">
-		<div>
-			RWVS - dark lady watch over you
-		</div>
-		<div id="wrapper">
-			<div id="header">
-				{% block header %}{% endblock %}
+		<div id="wrap" class="boxed">
+			<header>
+				<div class="container clearfix">
+					<div class="six columns">RWVS - dark lady watch over you</div>
+					<div class="ten columns">
+						<nav id="menu" class="navigation">
+							<ul id="nav">
+								<li><a href="index.html" class="active">Home</a></li>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="index.html">Home</a></li>
+							</ul>
+							<select class="selectnav" id="selectnav1">
+								<option value>- Navigation Menu - </option>
+								<option value="index.html" selected>Home</option>
+								<option value="index.html">Home</option>
+								<option value="index.html">Home</option>
+								<option value="index.html">Home</option>
+								<option value="index.html">Home</option>
+								<option value="index.html">Home</option>
+								<option value="index.html">Home</option>
+							</select>
+						</nav>
+					</div>
+					<div class="sixteen columns"><hr></div>
+				</div>
+			</header>
+			<div class="container clearfix">
+				<div id="welcome">
+					<div class="sixteen columns">
+						<div class="welcome">
+							{% block toolbar %}{% endblock %}
+						</div>
+					</div>
+				</div>
 			</div>
-		</div
-		{% block time %}{% endblock %}
-		<p>bbbbbbbbbbbbbbbbbbbbb</p>
-		<p>bbbbbbbbbbbbbbbbbbbbb</p>
-			<p>bbbbbbbbbbbbbbbbbbbbb</p>
-		<p>bbbbbbbbbbbbbbbbbbbbb</p>
-			<p>bbbbbbbbbbbbbbbbbbbbb</p>
-		<p>bbbbbbbbbbbbbbbbbbbbb</p>
-			<p>bbbbbbbbbbbbbbbbbbbbb</p>
-		<p>bbbbbbbbbbbbbbbbbbbbb</p>
-			<p>bbbbbbbbbbbbbbbbbbbbb</p>
-		<p>bbbbbbbbbbbbbbbbbbbbb</p>
-
-			<p>bbbbbbbbbbbbbbbbbbbbb</p>
-		<p>bbbbbbbbbbbbbbbbbbbbb</p>
-			<p>bbbbbbbbbbbbbbbbbbbbb</p>
-		<p>bbbbbbbbbbbbbbbbbbbbb</p>
-			<p>bbbbbbbbbbbbbbbbbbbbb</p>
-		<p>bbbbbbbbbbbbbbbbbbbbb</p>
+		</div>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
 	</body>
 </html>

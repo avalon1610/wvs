@@ -1,0 +1,75 @@
+{% extends "main.html" %}
+
+{% block toolbar_css %}
+<style type="text/css">
+#input_image {
+	width: 60px;
+	height: 31px;
+	-webkit-transition: background 1s;
+    -moz-transition:    background 1s;
+    -ms-transition:     background 1s;
+    -o-transition:      background 1s;
+    transition:         background 1s;
+    float: left;
+}
+
+#input_image:hover {
+	background: #e64141;
+	cursor: pointer;
+}
+
+#search_text {
+	width: 550px;
+	height: 31px;
+	font-family: 'TitilliumText22LRegular',Arial,sans-serif;
+	font-size: 22px;
+	background:transparent;
+	border: 0 none;
+	color: white;
+	float: left;
+}
+
+#search_text:focus {
+	outline: none;
+	/*border-color: #e64141;*/
+}
+
+
+#search_label {
+	float: left;
+	padding: 4.5px;
+}
+#search_bar {
+	background: #3e3e3e;
+	height: 31px;
+	display: inline-block;
+	float: left;
+}
+#submit_btn {
+	margin: 5px 0
+}
+</style>
+{% endblock %}
+
+{% block toolbar_js %}
+<script type="text/javascript">
+$(function(){
+	$("#input_image").click(function(){
+		$("#search_form").submit();
+	});
+});
+</script>
+{% endblock %}
+
+{% block toolbar %}
+<form action="" method="post" id="search_form">
+	<div id="search_label">Target: </div>
+	<div id="search_bar">
+		<input type="text" name="target" id="search_text"/>
+		<div id="input_image">
+			{% load staticfiles %}
+			<input type="image" id="submit_btn" src="{% static "images/search-white.png" %}" alt="Submit"/>
+		</div>
+	</div>
+</form>
+{% endblock %}
