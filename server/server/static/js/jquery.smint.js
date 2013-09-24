@@ -47,9 +47,10 @@ If you like Smint, or have suggestions on how it could be improved, send me a tw
 				var scrollTop = $(window).scrollTop(); 
 							
 				// if we scroll more than the navigation, change its position to fixed and add class 'fxd', otherwise change it back to absolute and remove the class
-				if (scrollTop > stickyTop) { 
+				if (scrollTop > stickyTop+25) { 
 					$('.smint').css({ 'position': 'fixed', 'top':0 ,'width':stickyWidth}).addClass('fxd');
 					$('.smint').css({'padding-right':paddingright,'padding-left':paddingleft});
+					$('.smint').css({'margin-top':0});
 					} else {
 						//$('.smint').css({ 'position': 'fixed', 'top':stickyTop }).removeClass('fxd'); 
 						$('.smint').css({ 'position': 'static','margin-top':'25px'}).removeClass('fxd'); 
