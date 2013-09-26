@@ -21,10 +21,11 @@
 			margin: 0
 		}
 		#wrap {
-			height: 100%;
+			min-height: 2000px;
 		}
 		</style>
 		{% block toolbar_css %}{% endblock %}
+		{% block plugins_css %}{% endblock %}
 		<script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
 		<script type="text/javascript" src="{% static "js/jquery.smint.js" %}"></script>
 		<script type="text/javascript" src="{% static "js/jquery.easing.1.3.min.js" %}"></script>
@@ -39,6 +40,7 @@
 		});
 		</script>
 		{% block toolbar_js %}{% endblock %}
+		{% block plugins_js %}{% endblock %}
 	</head>
 	<body onload="setTimeout(function() { window.scrollTo(0, 1) }, 100);">
 		<div id="wrap" class="boxed">
@@ -75,47 +77,13 @@
 					<div class="sixteen columns">
 						<div class="welcome">
 							{% block toolbar %}{% endblock %}
+							{% block plugins %}{% endblock %}
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
-		<p>mmsssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddddddddd</p>
+		
 		<footer>
 			<div class="container">
 				<div class="six columns">
